@@ -11,7 +11,10 @@ ENTRYPOINT ["/gogs/gogs", "web"]
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install git wget ca-certificates -y --no-install-recommends && \
+    apt-get install git \
+                    wget \
+                    ca-certificates \
+                    openssh -y --no-install-recommends && \
     apt-get clean && \
     wget http://dl.bintray.com/walkingdevs/mirrors/gogs-0.8.43.tar.gz -O /gogs.tar.gz && \
     tar xf /gogs.tar.gz -C / && \
